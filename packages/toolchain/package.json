@@ -64,11 +64,11 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
-  "version": "1.0.0-alpha.25",
+  "version": "1.0.0-alpha.26",
   "bugs": "https://github.com/FaizanDurrani/paperback-toolchain/issues",
   "keywords": [
     "oclif"
   ],
   "types": "dist/index.d.ts",
-  "gitHead": "f7fcc07ceb1cf80f903abb7b63db9fbec01ab690"
+  "gitHead": "da3695f50658d1215036ee872c8572df76c72047"
 }
