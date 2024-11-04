@@ -414,7 +414,6 @@ class _CompatForm extends Form {
 
   constructor(private form: DUIForm) {
     super();
-    this.reloadSections();
   }
 
   override getSections(): Application.FormSectionElement[] {
@@ -443,6 +442,10 @@ class _CompatForm extends Form {
 
       this.reloadForm();
     });
+  }
+
+  formWillAppear(): void {
+    this.reloadSections()
   }
 }
 

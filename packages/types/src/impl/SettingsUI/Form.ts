@@ -10,4 +10,9 @@ export abstract class Form {
   }
 
   abstract getSections(): Application.FormSectionElement[];
+
+  formWillAppear?(): void
+  formDidAppear?(): void
+  formWillDisappear?(): void
+  formDidDisappear?(): void
 }

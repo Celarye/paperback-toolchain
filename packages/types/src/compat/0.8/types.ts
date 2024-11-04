@@ -1367,6 +1367,7 @@ AppCompat.createRequestManager = function (info): RequestManager {
         url += request.param;
       }
 
+      console.log('[COMPAT] SCHEDULING REQUEST TO '+ url)
       const [response, data] = await Application.scheduleRequest({
         url,
         method: request.method,
