@@ -49,7 +49,7 @@ PaperbackPolyfills.Selector = function (obj, symbol) {
             return obj[key]
         } else {
             const id = relative_uuid()
-            Object.defineProperty(obj, key, { value: id })
+            Object.defineProperty(obj, key, { enumerable: true, value: id })
             return id
         }
     })(obj, symbol as string)

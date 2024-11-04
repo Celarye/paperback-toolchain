@@ -1,7 +1,7 @@
-import type { Chapter } from "../../Chapter"
-import type { ChapterDetails } from "../../ChapterDetails"
-import type { SourceManga } from "../../SourceManga"
-import type { MangaProviding } from "./MangaProviding"
+import type { Chapter } from "../../Chapter";
+import type { ChapterDetails } from "../../ChapterDetails";
+import type { SourceManga } from "../../SourceManga";
+import type { MangaProviding } from "./MangaProviding";
 
 export interface ChapterProviding extends MangaProviding {
   /**

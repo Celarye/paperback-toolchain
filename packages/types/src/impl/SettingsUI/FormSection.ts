@@ -4,7 +4,9 @@ export function Section(
 ): Application.FormSectionElement {
   return {
     id,
-    items: items.filter((x) => x) as Application.FormItemElement<unknown>[],
+    items: items.filter(
+      (x) => x,
+    ) as Application.FormItemElement<unknown>[],
   };
 }
 
@@ -37,7 +39,7 @@ declare global {
   namespace Application {
     interface FormSectionElement {
       id: string;
-      items: FormItemElement<unknown>[];
+      readonly items: FormItemElement<unknown>[];
     }
   }
 }

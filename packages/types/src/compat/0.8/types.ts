@@ -1,203 +1,187 @@
 // deno-lint-ignore-file no-explicit-any prefer-const ban-ts-comment no-unused-vars require-await
 export interface DUIHeader extends DUIFormRow {
+  id: string;
+  imageUrl: string;
+  title: string;
+  subtitle?: string;
 }
 declare global {
   namespace App {
-    function createDUIHeader(info: {
-      id: string;
-      imageUrl: string;
-      title: string;
-      subtitle?: string;
-    }): DUIHeader;
+    function createDUIHeader(info: DUIHeader): DUIHeader;
   }
 }
 export interface DUIMultilineLabel extends DUIFormRow {
+  id: string;
+  label: string;
+  value: string;
 }
 declare global {
   namespace App {
-    function createDUIMultilineLabel(info: {
-      id: string;
-      label: string;
-      value: string;
-    }): DUIMultilineLabel;
+    function createDUIMultilineLabel(
+      info: DUIMultilineLabel,
+    ): DUIMultilineLabel;
   }
 }
 export interface DUIOAuthButton extends DUIFormRow {
+  id: string;
+  label: string;
+  authorizeEndpoint: string;
+  clientId: string;
+  responseType: {
+    type: "token";
+  } | {
+    type: "code";
+    tokenEndpoint: string;
+  } | {
+    type: "pkce";
+    tokenEndpoint: string;
+    pkceCodeLength: number;
+    pkceCodeMethod: "S256" | "plain";
+    formEncodeGrant: boolean;
+  };
+  redirectUri?: string;
+  scopes?: string[];
+  successHandler: (
+    arg0: string,
+    arg1: string | undefined,
+  ) => Promise<void>;
 }
 declare global {
   namespace App {
-    function createDUIOAuthButton(info: {
-      id: string;
-      label: string;
-      authorizeEndpoint: string;
-      clientId: string;
-      responseType: Record<string, any>;
-      redirectUri?: string;
-      scopes?: string[];
-      successHandler: (arg0: string, arg1: string | undefined) => Promise<void>;
-    }): DUIOAuthButton;
+    function createDUIOAuthButton(info: DUIOAuthButton): DUIOAuthButton;
   }
 }
 export interface DUILabel extends DUIFormRow {
+  id: string;
+  label: string;
+  value?: string;
 }
 declare global {
   namespace App {
-    function createDUILabel(info: {
-      id: string;
-      label: string;
-      value?: string;
-    }): DUILabel;
+    function createDUILabel(info: DUILabel): DUILabel;
   }
 }
 export interface DUISwitch extends DUIFormRow {
+  id: string;
+  label: string;
+  value: DUIBinding;
 }
 declare global {
   namespace App {
-    function createDUISwitch(info: {
-      id: string;
-      label: string;
-      value: DUIBinding;
-    }): DUISwitch;
+    function createDUISwitch(info: DUISwitch): DUISwitch;
   }
 }
 export interface DUIStepper extends DUIFormRow {
+  id: string;
+  label: string;
+  value: DUIBinding;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 declare global {
   namespace App {
-    function createDUIStepper(info: {
-      id: string;
-      label: string;
-      value: DUIBinding;
-      min?: number;
-      max?: number;
-      step?: number;
-    }): DUIStepper;
+    function createDUIStepper(info: DUIStepper): DUIStepper;
   }
 }
 export interface DUINavigationButton extends DUIFormRow {
+  id: string;
+  label: string;
+  form: DUIForm;
 }
 declare global {
   namespace App {
-    function createDUINavigationButton(info: {
-      id: string;
-      label: string;
-      form: DUIForm;
-    }): DUINavigationButton;
+    function createDUINavigationButton(
+      info: DUINavigationButton,
+    ): DUINavigationButton;
   }
 }
 export interface DUISecureInputField extends DUIFormRow {
+  id: string;
+  label: string;
+  value: DUIBinding;
 }
 declare global {
   namespace App {
-    function createDUISecureInputField(info: {
-      id: string;
-      label: string;
-      value: DUIBinding;
-    }): DUISecureInputField;
+    function createDUISecureInputField(
+      info: DUISecureInputField,
+    ): DUISecureInputField;
   }
 }
 export interface DUIButton extends DUIFormRow {
+  id: string;
+  label: string;
+  onTap: () => Promise<void>;
 }
 declare global {
   namespace App {
-    function createDUIButton(info: {
-      id: string;
-      label: string;
-      onTap: () => Promise<void>;
-    }): DUIButton;
+    function createDUIButton(info: DUIButton): DUIButton;
   }
 }
 export interface DUIInputField extends DUIFormRow {
+  id: string;
+  label: string;
+  value: DUIBinding;
 }
 declare global {
   namespace App {
-    function createDUIInputField(info: {
-      id: string;
-      label: string;
-      value: DUIBinding;
-    }): DUIInputField;
+    function createDUIInputField(info: DUIInputField): DUIInputField;
   }
 }
 export interface DUILink extends DUIFormRow {
+  id: string;
+  label: string;
+  value?: string;
 }
 declare global {
   namespace App {
-    function createDUILink(info: {
-      id: string;
-      label: string;
-      value?: string;
-    }): DUILink;
+    function createDUILink(info: DUILink): DUILink;
   }
 }
 export interface DUISelect extends DUIFormRow {
-  /*
-   * internalName: _labelResolver
-   */
-  readonly labelResolver: (arg0: string) => Promise<string>;
+  id: string;
+  label: string;
+  options: string[];
+  value: DUIBinding;
+  allowsMultiselect: boolean;
+  labelResolver: (arg0: string) => Promise<string>;
 }
 declare global {
   namespace App {
-    function createDUISelect(info: {
-      id: string;
-      label: string;
-      options: string[];
-      value: DUIBinding;
-      allowsMultiselect: boolean;
-      labelResolver: (arg0: string) => Promise<string>;
-    }): DUISelect;
+    function createDUISelect(info: DUISelect): DUISelect;
   }
 }
 export interface DUIForm {
-  /*
-   * internalName: _onSubmit
-   */
-  onSubmit(values: Record<any, any>): Promise<void> | undefined;
-  /*
-   * internalName: _sections
-   */
-  sections(): Promise<DUISection[]>;
+  sections: () => Promise<DUISection[]>;
+  onSubmit?: (arg0: Record<any, any>) => Promise<void>;
 }
 declare global {
   namespace App {
-    function createDUIForm(info: {
-      sections: () => Promise<DUISection[]>;
-      onSubmit?: (arg0: Record<any, any>) => Promise<void>;
-    }): DUIForm;
+    function createDUIForm(info: DUIForm): DUIForm;
   }
 }
 export interface DUIBinding {
-  /*
-   * internalName: _get
-   */
-  get(): Promise<any>;
-  /*
-   * internalName: _set
-   */
-  set(newValue: any): Promise<void>;
+  get: () => Promise<any>;
+  set?: (arg0: any | undefined) => Promise<void>;
 }
 declare global {
   namespace App {
-    function createDUIBinding(info: {
-      get: () => Promise<any>;
-      set?: (arg0: any | undefined) => Promise<void>;
-    }): DUIBinding;
+    function createDUIBinding(info: DUIBinding): DUIBinding;
   }
 }
 export interface DUIFormRow {
   readonly id: string;
 }
 export interface DUISection {
-  _rows(): Promise<DUIFormRow[]>;
+  id: string;
+  header?: string;
+  footer?: string;
+  isHidden: boolean;
+  rows: () => Promise<DUIFormRow[]>;
 }
 declare global {
   namespace App {
-    function createDUISection(info: {
-      id: string;
-      header?: string;
-      footer?: string;
-      isHidden: boolean;
-      rows: () => Promise<DUIFormRow[]>;
-    }): DUISection;
+    function createDUISection(info: DUISection): DUISection;
   }
 }
 export interface Tag {
@@ -639,7 +623,9 @@ declare global {
     function createInputField(info: DUIInputField): DUIInputField;
     function createLabel(info: DUILabel): DUILabel;
     function createLink(info: DUILink): DUILink;
-    function createMultilineLabel(info: DUIMultilineLabel): DUIMultilineLabel;
+    function createMultilineLabel(
+      info: DUIMultilineLabel,
+    ): DUIMultilineLabel;
     function createNavigationButton(
       info: DUINavigationButton,
     ): DUINavigationButton;
@@ -1223,7 +1209,9 @@ export interface HomePageSectionsProviding {
 export interface MangaProgressProviding {
   getMangaProgressManagementForm(mangaId: string): Promise<DUIForm>;
   getMangaProgress(mangaId: string): Promise<MangaProgress | undefined>;
-  processChapterReadActionQueue(actionQueue: TrackerActionQueue): Promise<void>;
+  processChapterReadActionQueue(
+    actionQueue: TrackerActionQueue,
+  ): Promise<void>;
 }
 export interface CloudflareBypassRequestProviding
   extends RequestManagerProviding {
@@ -1256,7 +1244,7 @@ import {
   PaperbackInterceptor,
   Request as PBRequest,
   Response as PBResponse,
-} from "../../index"
+} from "../../index";
 
 const AppCompat = {} as typeof App;
 AppCompat.createSourceStateManager = function (): SourceStateManager {
@@ -1284,7 +1272,9 @@ AppCompat.createRequestManager = function (info): RequestManager {
       super("main");
     }
 
-    override async interceptRequest(request: PBRequest): Promise<PBRequest> {
+    override async interceptRequest(
+      request: PBRequest,
+    ): Promise<PBRequest> {
       if (!this.legacyInterceptor) return request;
 
       const oldRequest: Request = {
@@ -1298,9 +1288,10 @@ AppCompat.createRequestManager = function (info): RequestManager {
         })),
       };
 
-      const interceptedRequest = await this.legacyInterceptor.interceptRequest(
-        oldRequest,
-      );
+      const interceptedRequest = await this.legacyInterceptor
+        .interceptRequest(
+          oldRequest,
+        );
 
       let url = interceptedRequest.url;
       if (interceptedRequest.param) {
@@ -1404,9 +1395,21 @@ globalThis.App = new Proxy(AppCompat, {
       // @ts-ignore //
       return target[p];
     }
+
     if (typeof p === "string" && p.startsWith("create")) {
+      if (p.startsWith("createDUI")) {
+        const type = p.slice(6);
+        return (anyProps: any) => {
+          return Object.defineProperty(anyProps, "type", {
+            enumerable: true,
+            value: type,
+          });
+        };
+      }
+
       return (anyProps: any) => anyProps;
     }
+
     return undefined;
   },
 });

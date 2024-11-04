@@ -42,7 +42,7 @@ declare global {
       selector?: SelectorID<
         (
           section: DiscoverSection,
-          metadata: unknown | undefined,
+          metadata: any | undefined,
         ) => Promise<PagedResults<DiscoverSectionItem>>
       >,
     ): void;

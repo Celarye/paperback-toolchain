@@ -22,7 +22,12 @@ export default class Server {
 
         this.server = http
             .createServer((request, response) => {
-                console.log(`Request ${request.url}`)
+                console.log(`${request.method} Request ${request.url}`)
+                
+                if(request.method === 'OPTIONS') {
+                    response.end()
+                    return
+                }
 
                 let filePath = './bundles' + request.url
                 if (filePath === './') {
@@ -68,7 +73,7 @@ export default class Server {
                         }
                     } else {
                         response.writeHead(200, {
-                            'Content-Type': contentType
+                            'Content-Type': contentType,"access-control-allow-origin": "*"
                         })
                         response.end(content, 'utf8')
                     }
