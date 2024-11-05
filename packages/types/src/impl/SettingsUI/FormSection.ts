@@ -1,9 +1,22 @@
+type SectionInfo = {
+  id: string;
+  header?: string;
+  footer?: string;
+};
+
 export function Section(
-  id: string,
+  params: string | SectionInfo,
   items: (Application.FormItemElement<unknown> | undefined)[],
 ): Application.FormSectionElement {
+  let info: SectionInfo;
+  if (typeof params === "string") {
+    info = { id: params };
+  } else {
+    info = params;
+  }
+
   return {
-    id,
+    ...info,
     items: items.filter(
       (x) => x,
     ) as Application.FormItemElement<unknown>[],
@@ -39,7 +52,9 @@ declare global {
   namespace Application {
     interface FormSectionElement {
       id: string;
-      readonly items: FormItemElement<unknown>[];
+      header?: string;
+      footer?: string;
+      items: FormItemElement<unknown>[];
     }
   }
 }

@@ -231,12 +231,18 @@ class _CompatWrapper
 
 class _CompatSection implements Application.FormSectionElement {
   id: string;
+  header?: string
+  footer?: string
+
   bindingValueCache: Record<string, any> = {};
   items: Application.FormItemElement<unknown>[] = [];
   proxies: Record<string, any> = {};
 
   constructor(private form: _CompatForm, private section: DUISection) {
     this.id = section.id;
+    this.header = section.header
+    this.footer = section.footer
+    
     this.reloadRows();
   }
 
