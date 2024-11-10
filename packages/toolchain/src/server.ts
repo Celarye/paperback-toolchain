@@ -30,8 +30,8 @@ export default class Server {
                 }
 
                 let filePath = './bundles' + request.url
-                if (filePath === './') {
-                    filePath = './index.html'
+                if (request.url === '/') {
+                    filePath += 'index.html'
                 }
 
                 const extname = String(path.extname(filePath)).toLowerCase()
@@ -83,14 +83,17 @@ export default class Server {
 
         console.log(
             `Server running at ${chalk.green(
-                `http://127.0.0.1:${this.port}/versioning.json`
+                `http://127.0.0.1:${this.port}/`
             )}`
         )
-        console.log(
+
+        for (const ip of getLocalIPv4Address()) {
+          console.log(
             `Server running at ${chalk.green(
-                `http://${getLocalIPv4Address()}:${this.port}/versioning.json`
+              `http://${ip}:${this.port}/`
             )}`
-        )
+          )
+        }
     }
 
     stop() {
