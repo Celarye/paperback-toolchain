@@ -18,7 +18,7 @@
   "scripts": {
     "build": "./cross-compile.sh"
   },
-  "version": "1.0.0-go.0",
+  "version": "1.0.0-go.1",
   "bugs": "https://github.com/FaizanDurrani/paperback-toolchain/issues",
   "keywords": [
     "paperback",
@@ -26,9 +26,9 @@
     "paperback toolchain"
   ],
   "optionalDependencies": {
-    "@paperback/paperback-cli-darwin-amd64": "^1.0.0-go.0",
-    "@paperback/paperback-cli-darwin-arm64": "^1.0.0-go.0",
-    "@paperback/paperback-cli-linux-amd64": "^1.0.0-go.0",
-    "@paperback/paperback-cli-windows-amd64": "^1.0.0-go.0"
+    "@paperback/paperback-cli-darwin-amd64": "^1.0.0-go.1",
+    "@paperback/paperback-cli-darwin-arm64": "^1.0.0-go.1",
+    "@paperback/paperback-cli-linux-amd64": "^1.0.0-go.1",
+    "@paperback/paperback-cli-windows-amd64": "^1.0.0-go.1"
   }
 }

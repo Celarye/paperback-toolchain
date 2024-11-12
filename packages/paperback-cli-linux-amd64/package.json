@@ -1,6 +1,6 @@
 {
   "name": "@paperback/paperback-cli-linux-amd64",
-  "version": "1.0.0-go.0",
+  "version": "1.0.0-go.1",
   "os": [
     "linux"
   ],
