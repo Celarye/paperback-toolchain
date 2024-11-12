@@ -1,6 +1,6 @@
 {
   "name": "@paperback/paperback-cli-windows-amd64",
-  "version": "1.0.0-go.1",
+  "version": "1.0.0-go.2",
   "os": [
     "windows"
   ],
@@ -10,5 +10,9 @@
   "scripts": {},
   "files": [
     "/bin"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "63e2e3efd5518e931fb10cc30b37871121729cb6"
 }

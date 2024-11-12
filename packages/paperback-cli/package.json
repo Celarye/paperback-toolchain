@@ -3,6 +3,9 @@
   "bin": {
     "paperback-cli": "./bin/paperback-cli.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "The Paperback extension development toolchain",
   "engines": {
     "node": ">=20.0.0"
@@ -18,7 +21,7 @@
   "scripts": {
     "build": "./cross-compile.sh"
   },
-  "version": "1.0.0-go.1",
+  "version": "1.0.0-go.2",
   "bugs": "https://github.com/FaizanDurrani/paperback-toolchain/issues",
   "keywords": [
     "paperback",
@@ -26,9 +29,10 @@
     "paperback toolchain"
   ],
   "optionalDependencies": {
-    "@paperback/paperback-cli-darwin-amd64": "^1.0.0-go.1",
-    "@paperback/paperback-cli-darwin-arm64": "^1.0.0-go.1",
-    "@paperback/paperback-cli-linux-amd64": "^1.0.0-go.1",
-    "@paperback/paperback-cli-windows-amd64": "^1.0.0-go.1"
-  }
+    "@paperback/paperback-cli-darwin-amd64": "^1.0.0-go.2",
+    "@paperback/paperback-cli-darwin-arm64": "^1.0.0-go.2",
+    "@paperback/paperback-cli-linux-amd64": "^1.0.0-go.2",
+    "@paperback/paperback-cli-windows-amd64": "^1.0.0-go.2"
+  },
+  "gitHead": "63e2e3efd5518e931fb10cc30b37871121729cb6"
 }

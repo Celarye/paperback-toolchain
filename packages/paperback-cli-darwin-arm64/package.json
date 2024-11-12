@@ -1,6 +1,6 @@
 {
   "name": "@paperback/paperback-cli-darwin-arm64",
-  "version": "1.0.0-go.1",
+  "version": "1.0.0-go.2",
   "os": [
     "darwin"
   ],
@@ -8,7 +8,11 @@
     "arm64"
   ],
   "scripts": {},
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "/bin"
-  ]
+  ],
+  "gitHead": "63e2e3efd5518e931fb10cc30b37871121729cb6"
 }
