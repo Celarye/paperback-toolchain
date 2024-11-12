@@ -1,9 +1,14 @@
 {
   "name": "@paperback/paperback-cli-windows-amd64",
-  "version": "1.0.0",
-  "os": ["windows"],
-  "cpu": ["x64", "amd64"],
-  "scripts": {
-    "build": "env GOOS=windows GOARCH=amd64 go build ../paperback-cli/main.go -o ./bin/paperback-cli -ldflags \"-w\""
-  }
+  "version": "1.0.0-go.0",
+  "os": [
+    "windows"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "scripts": {},
+  "files": [
+    "/bin"
+  ]
 }

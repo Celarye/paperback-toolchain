@@ -1,9 +1,14 @@
 {
   "name": "@paperback/paperback-cli-darwin-arm64",
-  "version": "1.0.0",
-  "os": ["darwin"],
-  "cpu": ["arm", "arm64"],
-  "scripts": {
-    "build": "env GOOS=darwin GOARCH=arm64 go build ../paperback-cli/main.go -o ./bin/paperback-cli -ldflags \"-w\""
-  }
+  "version": "1.0.0-go.0",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "scripts": {},
+  "files": [
+    "/bin"
+  ]
 }
