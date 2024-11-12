@@ -1,0 +1,26 @@
+{
+  "author": "Faizan Durrani @FaizanDurrani",
+  "bin": {
+    "paperback-cli": "./bin/paperback-cli.js"
+  },
+  "description": "The Paperback extension development toolchain",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "files": [
+    "/bin",
+    "/scripts"
+  ],
+  "homepage": "https://github.com/paperback-ios/paperback-toolchain",
+  "license": "MIT",
+  "name": "@paperback/toolchain",
+  "repository": "FaizanDurrani/paperback-toolchain",
+  "scripts": {},
+  "version": "1.0.0-alpha.28",
+  "bugs": "https://github.com/FaizanDurrani/paperback-toolchain/issues",
+  "keywords": [
+    "paperback",
+    "paperback cli",
+    "paperback toolchain"
+  ]
+}
