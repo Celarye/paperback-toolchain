@@ -1,7 +1,47 @@
 {
-  "author": "Faizan Durrani @FaizanDurrani",
+  "name": "@paperback/toolchain",
+  "description": "The Paperback extension development toolchain.",
+  "author": "Faizan Durrani",
+  "keywords": [
+    "Paperback",
+    "iOS",
+    "TypeScript-types"
+  ],
+  "version": "1.0.0-alpha.28",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paperback-ios/paperback-toolchain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paperback-ios/paperback-toolchain/issues"
+  },
+  "homepage": "https://github.com/paperback-ios/paperback-toolchain#readme",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
     "paperback-cli": "./bin/run.js"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b && cp -r src/homepage dist/ && cp -r src/shims dist/",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "mocha": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md",
+    "eslint-check": "eslint --config ../../eslint.config.js",
+    "eslint-write": "eslint --config ../../eslint.config.js --fix",
+    "prettier-check": "prettier --config ../../prettier.config.js --check '**/*{.md,.yaml,.json,.html,.js,.ts}'  --ignore-path ../../.prettierignore",
+    "prettier-write": "prettier --config ../../prettier.config.js --write '**/*{.md,.yaml,.json,.html,.js,.ts}'  --ignore-path ../../.prettierignore",
+    "f-test": "tsc --noEmit && npm run eslint-check && npm run prettier-check"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.12.2",
@@ -18,7 +58,6 @@
     "fs-extra": "^11.2.0",
     "listr2": "^8.2.5"
   },
-  "description": "The Paperback extension development toolchain",
   "devDependencies": {
     "@oclif/test": "^3.2.15",
     "@protobuf-ts/plugin": "^2.9.4",
@@ -34,41 +73,14 @@
     "shx": "^0.3.4",
     "ts-node": "^10.9.2"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "files": [
-    "/bin",
-    "/dist",
-    "/oclif.manifest.json"
-  ],
-  "homepage": "https://github.com/FaizanDurrani/paperback-toolchain",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@paperback/toolchain",
   "oclif": {
     "bin": "paperback-cli",
     "dirname": "paperback-cli",
     "commands": "./dist/commands",
     "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
+      "@oclif/plugin-help"
     ],
     "topicSeparator": " "
   },
-  "repository": "FaizanDurrani/paperback-toolchain",
-  "scripts": {
-    "build": "shx rm -rf dist && tsc -b && cp -r src/homepage dist/ && cp -r src/shims dist/",
-    "postpack": "shx rm -f oclif.manifest.json",
-    "prepack": "npm run build && oclif manifest && oclif readme",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif readme && git add README.md"
-  },
-  "version": "1.0.0-alpha.28",
-  "bugs": "https://github.com/FaizanDurrani/paperback-toolchain/issues",
-  "keywords": [
-    "oclif"
-  ],
-  "types": "dist/index.d.ts",
   "gitHead": "da3695f50658d1215036ee872c8572df76c72047"
 }

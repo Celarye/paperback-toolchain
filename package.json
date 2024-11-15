@@ -1,12 +1,45 @@
 {
-    "name": "paperback-toolchain",
-    "description": "Paperback Toolchain",
-    "private": true,
-    "workspaces": [
-        "packages/*"
-    ],
-    "devDependencies": {
-        "lerna": "^8.1.8",
-        "typescript": "^5.6.3"
-    }
+  "name": "paperback",
+  "description": "Paperback extensions monorepo that includes the development toolchain, TypeScript type definitions, and Node.js runtime polyfills for testing.",
+  "author": "Paperback-iOS",
+  "keywords": [
+    "Paperback",
+    "iOS",
+    "toolchain",
+    "TypeScript-types",
+    "runtime-polyfills"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paperback-ios/paperback-toolchain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paperback-ios/paperback-toolchain/issues"
+  },
+  "homepage": "https://github.com/paperback-ios/paperback-toolchain#readme",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "lerna run test",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@tsconfig/node20": "^20.1.4",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/eslint": "^9.6.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.8.1",
+    "eslint": "^9.13.0",
+    "husky": "^9.1.6",
+    "lerna": "^8.1.8",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.11.0"
+  }
 }

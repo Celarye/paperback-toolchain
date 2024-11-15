@@ -1,18 +1,16 @@
 {
-    "compilerOptions": {
-        "declaration": true,
-        "module": "commonjs",
-        "outDir": "./dist",
-        "rootDir": "./src",
-        "strict": true,
-        "target": "es2022",
-        "allowJs": false,
-        "checkJs": false,
-        "esModuleInterop": true,
-    },
-    "include": [
-        "src/**/*.ts",
-        "src/devtools/.generated"
-    ],
-    "exclude": ["src/shims"]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": [
+    "@tsconfig/node20/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "composite": true /* Enable constraints that allow a TypeScript project to be used with project references. */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "resolveJsonModule": true /* Enable importing .json files. */,
+    "allowJs": true /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
+  },
+  "exclude": ["bin/**", "src/shims/**"]
 }
