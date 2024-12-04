@@ -2,28 +2,18 @@
 
 version: 2
 updates:
-  - package-ecosystem: npm # See documentation for possible values
-    directory: / # Location of package manifests
+  - package-ecosystem: npm
+    directory: /
     schedule:
       interval: weekly
       day: sunday
-    versioning-strategy: increase
-    labels:
-      - dependencies
     groups:
       minor-patch:
         applies-to: version-updates
         update-types:
           - "minor"
           - "patch"
-    open-pull-requests-limit: 5
-    pull-request-branch-name:
-      separator: '-'
-    commit-message:
-      # cause a release for non-dev-deps
-      prefix: fix(deps)
-      # no release for dev-deps
-      prefix-development: chore(dev-deps)
-    ignore:
-      - dependency-name: '*'
-        update-types: ['version-update:semver-major']
+      major:
+        applies-to: version-updates
+        update-types:
+          - "major"

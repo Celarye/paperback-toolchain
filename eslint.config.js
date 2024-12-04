@@ -8,11 +8,10 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      allowBitwiseExpressions: true,
     },
   },
   {
-    extends: [...tseslint.configs.strictTypeChecked],
+    extends: [...tseslint.configs.recommendedTypeChecked],
     files: ["**/*.ts"],
     languageOptions: {
       parser: tseslint.parser,

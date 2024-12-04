@@ -24,11 +24,11 @@
   "main": "./lib/index.js",
   "types": "./src/index.ts",
   "scripts": {
-    "eslint-check": "eslint --config ../../eslint.config.js",
-    "eslint-write": "eslint --config ../../eslint.config.js --fix",
-    "prettier-check": "prettier --config ../../prettier.config.js --check '**/*{.md,.yaml,.json,.html,.js,.ts}'  --ignore-path ../../.prettierignore",
-    "prettier-write": "prettier --config ../../prettier.config.js --write '**/*{.md,.yaml,.json,.html,.js,.ts}'  --ignore-path ../../.prettierignore",
-    "f-test": "tsc --noEmit && npm run eslint-check && npm run prettier-check",
+    "lint:check": "eslint",
+    "lint": "eslint --fix",
+    "format:check": "prettier --check '**/*{.md,.yaml,.json,.html,.js,.ts}'",
+    "format": "prettier --write '**/*{.md,.yaml,.json,.html,.js,.ts}'",
+    "f-test": "tsc --noEmit && npm run lint:check && npm run format:check",
     "build": "rm -rf lib && tsc",
     "prepack": "npm run build"
   },
